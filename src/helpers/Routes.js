@@ -34,8 +34,8 @@ export default function Routes({ authed }) {
         />
         <Route
           exact
-          path='/single-board'
-          component={() => <SingleBoard authed={authed} />}
+          path='/boards/:id'
+          component={(props) => <SingleBoard authed={authed} {...props} />}
         />
         <Route
           exact
