@@ -9,7 +9,7 @@ fbConnection();
 
 class App extends React.Component {
   state = {
-    authed: false,
+    authed: null,
   }
 
   componentDidMount() {
