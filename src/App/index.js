@@ -5,6 +5,10 @@ import fbConnection from '../helpers/data/connection';
 import MyNavbar from '../components/MyNavbar';
 import Routes from '../helpers/Routes';
 
+// import { patchFBBoardKeys, patchFBPinKeys } from '../helpers/data/patchFBkeys';
+
+// patchFBBoardKeys();
+// patchFBPinKeys();
 fbConnection();
 
 class App extends React.Component {
