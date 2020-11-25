@@ -11,7 +11,7 @@ export default function Home({ authed }) {
     } else if (authed) {
       component = <Boards />;
     } else {
-      component = <Auth />
+      component = <Auth />;
     }
     return component;
   };

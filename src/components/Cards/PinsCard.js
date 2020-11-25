@@ -7,9 +7,7 @@ export default function PinsCard({ pin }) {
       <img className='card-img-top' src={pin.imageUrl} alt='Card cap' />
       <div className='card-body'>
         <h5 className='card-title'>{pin.name}</h5>
-        <p className='card-text'>
-          {pin.description}
-        </p>
+        <p className='card-text'>{pin.description}</p>
         <Link className='btn btn-primary' to={`/pin-edit/${pin.firebaseKey}`}>
           Edit Pin
         </Link>

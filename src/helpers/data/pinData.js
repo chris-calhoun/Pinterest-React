@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://fir-cows-958ae.firebaseio.com/pinterest-webpack';
+const baseUrl = 'https://pinterest-aa40e.firebaseio.com/';
 
 const getBoardPins = (boardId) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/pins-boards.json?orderBy="boardId"&equalTo="${boardId}"`).then((response) => {
@@ -9,7 +9,7 @@ const getBoardPins = (boardId) => new Promise((resolve, reject) => {
 });
 
 const getPin = (pinId) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/pins/${pinId}.json`).then((response) => {
+  axios.get(`${baseUrl}/pin/${pinId}.json`).then((response) => {
     resolve(response.data);
   }).catch((error) => reject(error));
 });

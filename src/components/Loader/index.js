@@ -1,4 +1,3 @@
-
 const loaders = () => (
   <div className="mt-5">
     <div className="spinner-grow text-primary" role="status">
