@@ -27,8 +27,11 @@ export default class BoardForm extends Component {
       const storageRef = firebase.storage().ref();
       const imageRef = storageRef.child(`images/${this.state.userId}/${Date.now()}${e.target.files[0].name}`);
 
+      console.warn(e.target.files[0]);
+
       imageRef.put(e.target.files[0]).then((snapshot) => {
         snapshot.ref.getDownloadURL().then((imageUrl) => {
+          console.warn(imageUrl);
           this.setState({ imageUrl });
         });
       });
@@ -80,7 +83,7 @@ export default class BoardForm extends Component {
         <input
           type='url'
           name='imageUrl'
-          value={this.state.iamgeUrl}
+          value={this.state.imageUrl}
           onChange={this.handleChange}
           placeholder='Enter an Image URL or Upload a File'
           className='form-control form-control-lg m-1'
