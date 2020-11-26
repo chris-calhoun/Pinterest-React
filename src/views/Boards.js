@@ -1,7 +1,9 @@
 import React from 'react';
-import { getAllBoards } from '../helpers/data/boardData';
+import { getAllUserBoards } from '../helpers/data/boardData';
 import BoardsCard from '../components/Cards/BoardsCard';
 import Loader from '../components/Loader';
+import BoardsForm from '../components/Forms/BoardForm';
+import getUid from '../helpers/data/authData';
 
 export default class Boards extends React.Component {
   state = {
@@ -10,7 +12,13 @@ export default class Boards extends React.Component {
   }
 
   componentDidMount() {
-    getAllBoards().then((response) => {
+    this.getBoards();
+  }
+
+  getBoards = () => {
+    const currentUserId = getUid();
+    // console.warn(currentUserId);
+    getAllUserBoards(currentUserId).then((response) => {
       this.setState({
         boards: response,
       }, this.setLoading);
@@ -34,11 +42,15 @@ export default class Boards extends React.Component {
     );
     return (
       <>
-        <h1>All the boards</h1>
+
         {loading ? (
           <Loader />
         ) : (
+          <>
+          <BoardsForm onUpdate={this.getBoards}/>
+          <h1>Here are all of your boards</h1>
           <div className='d-flex flex-wrap container'>{showBoards()}</div>
+          </>
         )}
       </>
     );
