@@ -11,6 +11,7 @@ export default function BoardsCard({ board }) {
         <Link className='btn btn-primary' to={`/boards/${board.firebaseKey}`}>
           View Pins
         </Link>
+        <button className='btn btn-danger'>Delete</button>
       </div>
     </div>
   );
