@@ -3,6 +3,7 @@ import { getBoardPins, getPin } from '../helpers/data/pinData';
 import { getSingleBoard } from '../helpers/data/boardData';
 import PinsCard from '../components/Cards/PinsCard';
 import BoardForm from '../components/Forms/BoardForm';
+import AppModal from '../components/Modal';
 
 export default class SingleBoard extends React.Component {
   state = {
@@ -62,7 +63,9 @@ export default class SingleBoard extends React.Component {
     // 3. Render the pins on the DOM
     return (
       <div>
-        {Object.keys(board).length && <BoardForm board={board} onUpdate={this.getBoardInfo}/>}
+        <AppModal title={'Update Board'} buttonLabel={'Update Board'}>
+          {Object.keys(board).length && <BoardForm board={board} onUpdate={this.getBoardInfo}/>}
+        </AppModal>
         <h1>{board.name}</h1>
         <div className='d-flex flex-wrap container'>
           {renderPins()}
