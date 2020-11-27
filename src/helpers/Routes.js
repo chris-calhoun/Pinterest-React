@@ -1,7 +1,6 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from '../views/Home';
-import BoardForm from '../views/BoardForm';
 import Boards from '../views/Boards';
 import PinDetails from '../views/PinDetails';
 import PinForm from '../views/PinForm';
@@ -17,12 +16,12 @@ export default function Routes({ authed }) {
           path='/'
           component={() => <Home authed={authed} />}
         />
-        <Route
+        <PrivateRoute
           exact
           path='/pin-details'
           component={() => <PinDetails authed={authed} />}
         />
-        <Route
+        <PrivateRoute
           exact
           path='/pins'
           component={() => <Pins authed={authed} />}
@@ -37,12 +36,7 @@ export default function Routes({ authed }) {
           path='/boards/:id'
           component={(props) => <SingleBoard authed={authed} {...props} />}
         />
-        <Route
-          exact
-          path='/board-form'
-          component={() => <BoardForm authed={authed} />}
-        />
-        <Route
+        <PrivateRoute
           exact
           path='/boards'
           component={() => <Boards authed={authed} />}
@@ -51,3 +45,10 @@ export default function Routes({ authed }) {
       </Switch>
   );
 }
+
+const PrivateRoute = ({ component: Component, user, ...rest }) => {
+  const routeChecker = (taco) => (user
+    ? (<Component {...taco} user={user}/>)
+    : (<Redirect to={{ pathname: '/', state: { from: taco.location } }}/>));
+  return <Route {...rest} render={(props) => routeChecker(props)} />;
+};
