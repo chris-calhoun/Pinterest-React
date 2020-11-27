@@ -1,6 +1,6 @@
 import React from 'react';
 import { getBoardPins, getPin } from '../helpers/data/pinData';
-import { getSingleBoard } from '../helpers/data/boardData';
+import BoardData from '../helpers/data/boardData';
 import PinsCard from '../components/Cards/PinsCard';
 import BoardForm from '../components/Forms/BoardForm';
 import AppModal from '../components/Modal';
@@ -30,7 +30,7 @@ export default class SingleBoard extends React.Component {
   }
 
   getBoardInfo = (boardId) => {
-    getSingleBoard(boardId).then((response) => {
+    BoardData.getSingleBoard(boardId).then((response) => {
       this.setState({
         board: response,
       });

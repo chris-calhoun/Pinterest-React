@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/storage';
 import getUser from '../../helpers/data/authData';
-import { createBoard, updateBoard } from '../../helpers/data/boardData';
+import BoardData from '../../helpers/data/boardData';
 
 export default class BoardForm extends Component {
   state = {
@@ -45,12 +45,12 @@ export default class BoardForm extends Component {
     e.preventDefault();
 
     if (this.state.firebaseKey === '') {
-      createBoard(this.state).then(() => {
+      BoardData.createBoard(this.state).then(() => {
         // rerender/update state in the boards components
         this.props.onUpdate();
       });
     } else {
-      updateBoard(this.state).then(() => {
+      BoardData.updateBoard(this.state).then(() => {
         // rerender/update state in the boards components
         this.props.onUpdate(this.props.board.firebaseKey);
       });

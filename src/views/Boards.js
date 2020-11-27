@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAllUserBoards } from '../helpers/data/boardData';
+import BoardData from '../helpers/data/boardData';
 import BoardsCard from '../components/Cards/BoardsCard';
 import Loader from '../components/Loader';
 import BoardsForm from '../components/Forms/BoardForm';
@@ -19,7 +19,7 @@ export default class Boards extends React.Component {
   getBoards = () => {
     const currentUserId = getUid();
     // console.warn(currentUserId);
-    getAllUserBoards(currentUserId).then((response) => {
+    BoardData.getAllUserBoards(currentUserId).then((response) => {
       this.setState({
         boards: response,
       }, this.setLoading);
@@ -36,10 +36,20 @@ export default class Boards extends React.Component {
     clearInterval(this.timer);
   }
 
+  deleteBoard = (e) => {
+    // delete board from firebase
+    BoardData.deleteBoard(e.target.id);
+    // set state to rerender DOM
+    const remainingBoards = this.state.boards.filter((board) => board.firebaseKey !== e.target.id);
+    this.setState({
+      boards: remainingBoards,
+    });
+  }
+
   render() {
     const { boards, loading } = this.state;
     const showBoards = () => (
-      boards.map((board) => <BoardsCard key={board.firebaseKey} board={board} />)
+      boards.map((board) => <BoardsCard key={board.firebaseKey} board={board} onDelete={this.deleteBoard}/>)
     );
     return (
       <>
