@@ -16,11 +16,6 @@ export default class SingleBoard extends React.Component {
     const boardId = this.props.match.params.id;
     // 2. make a call to the API that gets the board info
     this.getBoardInfo(boardId);
-    // getSingleBoard(boardId).then((response) => {
-    //   this.setState({
-    //     board: response,
-    //   });
-    // });
 
     // 1. Make a call to the API that returns the pins associated with this board and set to state.
     this.getPins(boardId)
@@ -52,8 +47,6 @@ export default class SingleBoard extends React.Component {
 
   render() {
     const { pins, board } = this.state;
-    // console.warn(board);
-    // console.warn(this.getBoardInfo());
     const renderPins = () => (
       pins.map((pin) => (
          <PinsCard key={pin.firebaseKey} pin={pin} />
