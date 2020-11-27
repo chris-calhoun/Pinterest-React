@@ -26,9 +26,12 @@ const updateBoard = (object) => new Promise((resolve, reject) => {
     .then(resolve).catch((error) => reject(error));
 });
 
+const deleteBoard = (fbKey) => axios.delete(`${baseUrl}/boards/${fbKey}.json`);
+
 export {
   getAllUserBoards,
   getSingleBoard,
   createBoard,
   updateBoard,
+  deleteBoard,
 };
