@@ -31,7 +31,6 @@ export default class BoardForm extends Component {
 
       imageRef.put(e.target.files[0]).then((snapshot) => {
         snapshot.ref.getDownloadURL().then((imageUrl) => {
-          console.warn(imageUrl);
           this.setState({ imageUrl });
         });
       });
@@ -53,7 +52,7 @@ export default class BoardForm extends Component {
     } else {
       updateBoard(this.state).then(() => {
         // rerender/update state in the boards components
-
+        this.props.onUpdate(this.props.board.firebaseKey);
       });
     }
   }
