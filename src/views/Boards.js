@@ -37,7 +37,13 @@ export default class Boards extends React.Component {
   }
 
   deleteBoard = (e) => {
+    // delete board from firebase
     BoardData.deleteBoard(e.target.id);
+    // set state to rerender DOM
+    const remainingBoards = this.state.boards.filter((board) => board.firebaseKey !== e.target.id);
+    this.setState({
+      boards: remainingBoards,
+    });
   }
 
   render() {
