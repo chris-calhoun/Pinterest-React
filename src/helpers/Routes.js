@@ -21,10 +21,11 @@ export default function Routes({ authed }) {
           path='/pin-details'
           component={() => <PinDetails authed={authed} />}
         />
-        <Route
+        <PrivateRoute
           exact
           path='/pins'
-          component={() => <Pins authed={authed} />}
+          component={Pins}
+          user={authed}
         />
         <Route
           exact
@@ -36,10 +37,11 @@ export default function Routes({ authed }) {
           path='/boards/:id'
           component={(props) => <SingleBoard authed={authed} {...props} />}
         />
-        <Route
+        <PrivateRoute
           exact
           path='/boards'
-          component={() => <Boards authed={authed} />}
+          component={Boards}
+          user={authed}
         />
         <Route component={NotFound} />
       </Switch>
