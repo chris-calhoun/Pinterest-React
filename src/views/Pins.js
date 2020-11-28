@@ -35,10 +35,18 @@ componentWillUnmount() {
   clearInterval(this.timer);
 }
 
+deletePin = (e) => {
+  PinData.deletePin(e.target.id);
+  const remainingPins = this.state.pins.filter((pin) => pin.firebaseKey !== e.target.id);
+  this.setState({
+    pins: remainingPins,
+  });
+}
+
 render() {
   const { pins, loading } = this.state;
   const showPins = () => (
-    pins.map((pin) => <PinsCard key={pin.firebaseKey} pin={pin}/>)
+    pins.map((pin) => <PinsCard key={pin.firebaseKey} pin={pin} onDelete={this.deletePin}/>)
   );
   return (
     <>

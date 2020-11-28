@@ -32,6 +32,8 @@ const updatePin = (object) => new Promise((resolve, reject) => {
     .then(resolve).catch((error) => reject(error));
 });
 
+const deletePin = (fbKey) => axios.delete(`${baseUrl}/pin/${fbKey}.json`);
+
 // eslint-disable-next-line
 export default {
   getBoardPins,
@@ -39,4 +41,5 @@ export default {
   getAllUserPins,
   createPin,
   updatePin,
+  deletePin,
 };
