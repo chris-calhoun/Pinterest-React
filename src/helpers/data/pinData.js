@@ -14,4 +14,10 @@ const getPin = (pinId) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-export { getBoardPins, getPin };
+const getAllUserPins = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/pin.json?orderBy="userId"&equalTo="${uid}"`).then((response) => {
+    resolve(Object.values(response.data));
+  }).catch((error) => reject(error));
+});
+
+export { getBoardPins, getPin, getAllUserPins };
