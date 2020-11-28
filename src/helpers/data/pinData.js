@@ -32,7 +32,7 @@ const updatePin = (object) => new Promise((resolve, reject) =>{
     .then(resolve).catch((error) => reject(error));
 });
 
-export {
+export default {
   getBoardPins,
   getPin,
   getAllUserPins,

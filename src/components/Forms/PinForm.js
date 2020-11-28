@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/storage';
 import getUser from '../../helpers/data/authData';
-import { createPin, updatePin } from '../../helpers/data/pinData';
+import PinData from '../../helpers/data/pinData';
 
 export default class PinForm extends Component {
   state = {
-    firebaseKey:this.props.pin?.firebaseKey || '',
+    firebaseKey: this.props.pin?.firebaseKey || '',
     name: this.props.pins?.name || '',
     imageUrl: this.props.pin?.imageUrl || '',
     userId: this.props.board?.userId || '',
@@ -45,7 +45,7 @@ export default class PinForm extends Component {
     e.preventDefault();
 
     if (this.state.firebaseKey === '') {
-      PinData.createBoard(this.state).then(() => {
+      PinData.createPin(this.state).then(() => {
         // rerender/update state in the pins components
         this.props.onUpdate();
       });
@@ -98,6 +98,6 @@ export default class PinForm extends Component {
         />
         <button>Submit</button>
       </form>
-    )
+    );
   }
 }
