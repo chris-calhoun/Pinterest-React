@@ -28,6 +28,7 @@ const updateBoard = (object) => new Promise((resolve, reject) => {
 
 const deleteBoard = (fbKey) => axios.delete(`${baseUrl}/board/${fbKey}.json`);
 
+// eslint-disable-next-line
 export default {
   getAllUserBoards,
   getSingleBoard,
