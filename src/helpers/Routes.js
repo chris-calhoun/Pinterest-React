@@ -21,7 +21,7 @@ export default function Routes({ authed }) {
           path='/pin-details'
           component={() => <PinDetails authed={authed} />}
         />
-        <PrivateRoute
+        <Route
           exact
           path='/pins'
           component={() => <Pins authed={authed} />}
@@ -36,7 +36,7 @@ export default function Routes({ authed }) {
           path='/boards/:id'
           component={(props) => <SingleBoard authed={authed} {...props} />}
         />
-        <PrivateRoute
+        <Route
           exact
           path='/boards'
           component={() => <Boards authed={authed} />}

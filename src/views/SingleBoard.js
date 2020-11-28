@@ -1,7 +1,7 @@
 import React from 'react';
-import { getBoardPins, getPin } from '../helpers/data/pinData';
+import PinData from '../helpers/data/pinData';
 import BoardData from '../helpers/data/boardData';
-import PinsCard from '../components/Cards/PinsCard';
+import PinsCard from '../components/Card/PinsCard';
 import BoardForm from '../components/Forms/BoardForm';
 import AppModal from '../components/Modal';
 
@@ -16,11 +16,6 @@ export default class SingleBoard extends React.Component {
     const boardId = this.props.match.params.id;
     // 2. make a call to the API that gets the board info
     this.getBoardInfo(boardId);
-    // getSingleBoard(boardId).then((response) => {
-    //   this.setState({
-    //     board: response,
-    //   });
-    // });
 
     // 1. Make a call to the API that returns the pins associated with this board and set to state.
     this.getPins(boardId)
@@ -38,12 +33,12 @@ export default class SingleBoard extends React.Component {
   }
 
   getPins = (boardId) => (
-    getBoardPins(boardId).then((response) => {
+    PinData.getBoardPins(boardId).then((response) => {
       // an array that holds all of the calls to get the pin information
       const pinArray = [];
       response.forEach((item) => {
         // pushing a function that returns a promise into the pinArray
-        pinArray.push(getPin(item.pinId));
+        pinArray.push(PinData.getPin(item.pinId));
       });
       // returning an array of all the fullfilled promises
       return Promise.all(pinArray);
@@ -52,8 +47,6 @@ export default class SingleBoard extends React.Component {
 
   render() {
     const { pins, board } = this.state;
-    // console.warn(board);
-    // console.warn(this.getBoardInfo());
     const renderPins = () => (
       pins.map((pin) => (
          <PinsCard key={pin.firebaseKey} pin={pin} />

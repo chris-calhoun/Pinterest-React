@@ -14,7 +14,7 @@ export default class MyNavbar extends Component {
     return (
       <div className="MyNavbar">
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <span className="navbar-brand" href="#">Pinterest</span>
+          <Link className="navbar-brand" to='/'>Pinterest</Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
