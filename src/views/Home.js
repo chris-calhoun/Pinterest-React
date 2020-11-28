@@ -9,7 +9,7 @@ export default function Home({ authed }) {
     if (authed === null) {
       component = <Loader />;
     } else if (authed) {
-      component = <Boards />;
+      component = <h2>public pins here.</h2>;
     } else {
       component = <Auth />;
     }

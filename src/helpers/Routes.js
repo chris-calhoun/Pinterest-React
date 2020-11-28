@@ -36,7 +36,7 @@ export default function Routes({ authed }) {
           path='/boards/:id'
           component={(props) => <SingleBoard authed={authed} {...props} />}
         />
-        <PrivateRoute
+        <Route
           exact
           path='/boards'
           component={() => <Boards authed={authed} />}
