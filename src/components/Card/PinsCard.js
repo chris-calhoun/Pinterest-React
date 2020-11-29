@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AppModal from '../Modal/index';
-import '../Forms/PinToBoardForm';
 import PinToBoardForm from '../Forms/PinToBoardForm';
 
 export default function PinsCard({ pin, onDelete }) {

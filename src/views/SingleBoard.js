@@ -45,11 +45,19 @@ export default class SingleBoard extends React.Component {
     })
   )
 
+  deletePin = (e) => {
+    PinData.deletePin(e.target.id);
+    const remainingPins = this.state.pins.filter((pin) => pin.firebaseKey !== e.target.id);
+    this.setState({
+      pins: remainingPins,
+    });
+  }
+
   render() {
     const { pins, board } = this.state;
     const renderPins = () => (
       pins.map((pin) => (
-         <PinsCard key={pin.firebaseKey} pin={pin} />
+         <PinsCard key={pin.firebaseKey} onDelete={this.deletePin} pin={pin} />
       ))
     );
 
