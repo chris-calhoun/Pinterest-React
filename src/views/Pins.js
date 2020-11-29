@@ -59,7 +59,7 @@ render() {
         <PinForm onUpdate={this.getPins}/>
       </AppModal>
       <h1>Here are all of your pins</h1>
-      <div className='d-flex flex-wrap container'>{showPins()}</div>
+      <div className='d-flex flex-wrap justify-content-center container'>{showPins()}</div>
       </>
     )}
     </>

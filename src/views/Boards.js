@@ -62,7 +62,7 @@ export default class Boards extends React.Component {
             <BoardsForm onUpdate={this.getBoards}/>
           </AppModal>
           <h1>Here are all of your boards</h1>
-          <div className='d-flex flex-wrap container'>{showBoards()}</div>
+          <div className='d-flex flex-wrap justify-content-center container'>{showBoards()}</div>
           </>
         )}
       </>

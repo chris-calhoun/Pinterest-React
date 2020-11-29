@@ -1,5 +1,4 @@
 import React from 'react';
-import Boards from './Boards';
 import Auth from '../components/Auth';
 import Loader from '../components/Loader';
 
