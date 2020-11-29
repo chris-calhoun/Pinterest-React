@@ -12,9 +12,9 @@ const pinToBoardJoin = (object) => new Promise((resolve, reject) => {
 const deletePinBoards = (pinId) => {
   axios.get(`${baseUrl}/pins-boards.json?orderBy="pinId"&equalTo="${pinId}"`)
     .then((response) => {
-      console.warn('response', response.data);
+      // console.warn('response', response.data);
       const pinBoardKeys = Object.keys(response.data);
-      console.warn('pbkey', pinBoardKeys);
+      // console.warn('pbkey', pinBoardKeys);
       pinBoardKeys.forEach((pinBoardFBKey) => {
         axios.delete(`${baseUrl}/pins-boards/${pinBoardFBKey}.json`);
       });

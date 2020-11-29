@@ -37,7 +37,7 @@ const deletePin = (fbKey) => axios.delete(`${baseUrl}/pin/${fbKey}.json`);
 const getPublicPins = () => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/pin.json?orderBy="private"&equalTo=false`).then((response) => {
     const pinObjOfObjs = response.data;
-    console.warn(pinObjOfObjs);
+    // console.warn(pinObjOfObjs);
     resolve(Object.values(pinObjOfObjs));
   }).catch((err) => reject(err));
 });
