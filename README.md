@@ -10,6 +10,8 @@ Reached MVP. Working on search bar functionality.
 
 ## Screenshots
 
+![Image of Site](/public/Boards-CC 'Pinterest-React')
+
 ## Tech/Framwork
 
 React
