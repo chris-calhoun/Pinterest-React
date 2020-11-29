@@ -1,24 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Auth from '../components/Auth';
 import Loader from '../components/Loader';
+import PinData from '../helpers/data/pinData';
+import PublicPinsCard from '../components/Card/PublicPinsCards';
 
-export default function Home({ authed }) {
-  const loadComponent = () => {
+export default class Home extends Component {
+  state = {
+    publicPins: [],
+  }
+
+  loadComponent = () => {
     let component = '';
-    if (authed === null) {
+    if (this.props.authed === null) {
       component = <Loader />;
-    } else if (authed) {
-      component = <h2>public pins here.</h2>;
+    } else if (this.props.authed) {
+      component = this.state.publicPins.map((pin) => (<PublicPinsCard key={pin.firebaseKey} pin={pin}/>));
     } else {
       component = <Auth />;
     }
     return component;
   };
 
-  return (
-    <div>
-      <h1>Welcome to React-Pinterest</h1>
-      {loadComponent()}
-    </div>
-  );
+  componentDidMount() {
+    PinData.getPublicPins().then((response) => {
+      this.setState({
+        publicPins: response,
+      });
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Welcome to React-Pinterest</h1>
+        <div className='d-flex flex-wrap justify-content-center container'>
+          {this.loadComponent()}
+        </div>
+      </div>
+    );
+  }
 }
