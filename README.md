@@ -8,10 +8,6 @@ Earlier in the NSS bootcamp, I created Pinterest using vanilla Javascript. This 
 
 Reached MVP. Working on search bar functionality.
 
-## Screenshots
-
-![Image of Site](/public/Boards-CC 'Pinterest-React')
-
 ## Tech/Framwork
 
 React
