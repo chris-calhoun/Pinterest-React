@@ -3,7 +3,7 @@ import PinData from '../helpers/data/pinData';
 import PinForm from '../components/Forms/PinForm';
 import AppModal from '../components/Modal';
 
-export default class SingleBoard extends React.Component {
+export default class PinDetails extends React.Component {
   state = {
     pin: {},
   };

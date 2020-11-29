@@ -16,7 +16,7 @@ export default function Routes({ authed }) {
           path='/'
           component={() => <Home authed={authed} />}
         />
-        <PrivateRoute
+        <Route
           exact
           path='/pin-details/:id'
           component={(props) => <PinDetails authed={authed} {...props} />}
