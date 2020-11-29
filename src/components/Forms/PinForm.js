@@ -7,7 +7,7 @@ import PinData from '../../helpers/data/pinData';
 export default class PinForm extends Component {
   state = {
     firebaseKey: this.props.pin?.firebaseKey || '',
-    name: this.props.pins?.name || '',
+    name: this.props.pin?.name || '',
     imageUrl: this.props.pin?.imageUrl || '',
     userId: this.props.board?.userId || '',
     description: this.props.pin?.description || '',
