@@ -18,8 +18,8 @@ export default function Routes({ authed }) {
         />
         <PrivateRoute
           exact
-          path='/pin-details'
-          component={() => <PinDetails authed={authed} />}
+          path='/pin-details/:id'
+          component={(props) => <PinDetails authed={authed} {...props} />}
         />
         <PrivateRoute
           exact
