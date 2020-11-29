@@ -16,10 +16,10 @@ export default function Routes({ authed }) {
           path='/'
           component={() => <Home authed={authed} />}
         />
-        <PrivateRoute
+        <Route
           exact
-          path='/pin-details'
-          component={() => <PinDetails authed={authed} />}
+          path='/pin-details/:id'
+          component={(props) => <PinDetails authed={authed} {...props} />}
         />
         <PrivateRoute
           exact

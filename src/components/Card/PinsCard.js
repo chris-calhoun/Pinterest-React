@@ -8,8 +8,8 @@ export default function PinsCard({ pin, onDelete }) {
       <div className='card-body'>
         <h5 className='card-title'>{pin.name}</h5>
         <p className='card-text'>{pin.description}</p>
-        <Link className='btn btn-primary' to={`/pin-edit/${pin.firebaseKey}`}>
-          Edit Pin
+        <Link className='btn btn-primary' to={`/pin-details/${pin.firebaseKey}`}>
+          Pin Details
         </Link>
         <button id={pin.firebaseKey} onClick={onDelete} className='btn btn-danger'>Delete</button>
       </div>
