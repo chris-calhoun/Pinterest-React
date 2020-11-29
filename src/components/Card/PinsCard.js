@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AppModal from '../Modal/index';
+import '../Forms/PinToBoardForm';
+import PinToBoardForm from '../Forms/PinToBoardForm';
 
 export default function PinsCard({ pin, onDelete }) {
   return (
@@ -11,6 +14,7 @@ export default function PinsCard({ pin, onDelete }) {
         <Link className='btn btn-primary' to={`/pin-details/${pin.firebaseKey}`}>
           Pin Details
         </Link>
+        <AppModal title={'Add Pin to Board'} buttonLabel={'Add to Board'}><PinToBoardForm pinId={pin.firebaseKey} /></AppModal>
         <button id={pin.firebaseKey} onClick={onDelete} className='btn btn-danger'>Delete</button>
       </div>
     </div>
