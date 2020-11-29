@@ -15,8 +15,6 @@ Reached MVP. Working on search bar functionality.
 React
 SASS
 
-## Code Example 
-
-
-
 ## Deployed Site
+
+https://pinterest-react-cc.netlify.app/
