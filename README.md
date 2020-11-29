@@ -12,8 +12,11 @@ Reached MVP. Working on search bar functionality.
 
 ## Tech/Framwork
 
-## Features
+React
+SASS
 
 ## Code Example 
+
+
 
 ## Deployed Site
