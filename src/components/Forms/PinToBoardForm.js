@@ -36,15 +36,15 @@ export default class PinToBoardForm extends Component {
     BoardPinData.pinToBoardJoin(pinToBoard);
   }
 
-  render() {
-    const loadBoardsDropdown = () => (
-      this.state.boards.map((board) => (<option key={board.firebaseKey} value={board.firebaseKey }>{board.name}</option>))
-    );
+  loadBoardsDropdown = () => (
+    this.state.boards.map((board) => (<option key={board.firebaseKey} value={board.firebaseKey }>{board.name}</option>))
+  );
 
+  render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>Select board</label>
-        <select value={this.state.selected} onChange={this.handleChange}>{loadBoardsDropdown()}</select>
+        <select value={this.state.selected} onChange={this.handleChange}>{this.loadBoardsDropdown()}</select>
         <button type='submit'>Submit</button>
       </form>
     );
