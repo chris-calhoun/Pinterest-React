@@ -19,9 +19,11 @@ export default class SingleBoard extends React.Component {
 
     // 1. Make a call to the API that returns the pins associated with this board and set to state.
     this.getPins(boardId)
-      .then((resp) => (
-        this.setState({ pins: resp })
-      ));
+      .then((resp) => {
+        // console.warn(boardId);
+        // console.warn(resp);
+        this.setState({ pins: resp });
+      });
   }
 
   getBoardInfo = (boardId) => {
@@ -44,6 +46,14 @@ export default class SingleBoard extends React.Component {
       return Promise.all(pinArray);
     })
   )
+
+  // deletePin = (e) => {
+  //   PinData.deletePin(e.target.id);
+  //   const remainingPins = this.state.pins.filter((pin) => pin.firebaseKey !== e.target.id);
+  //   this.setState({
+  //     pins: remainingPins,
+  //   });
+  // }
 
   render() {
     const { pins, board } = this.state;

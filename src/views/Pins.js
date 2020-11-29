@@ -5,6 +5,7 @@ import PinsCard from '../components/Card/PinsCard';
 import AppModal from '../components/Modal/index';
 import PinForm from '../components/Forms/PinForm';
 import Loader from '../components/Loader/index';
+import BoardPinData from '../helpers/data/boardPinData';
 
 export default class Pins extends Component {
   state = {
@@ -37,6 +38,7 @@ componentWillUnmount() {
 
 deletePin = (e) => {
   PinData.deletePin(e.target.id);
+  BoardPinData.deletePinBoards(e.target.id);
   const remainingPins = this.state.pins.filter((pin) => pin.firebaseKey !== e.target.id);
   this.setState({
     pins: remainingPins,
