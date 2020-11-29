@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Auth from '../components/Auth';
 import Loader from '../components/Loader';
 import PinData from '../helpers/data/pinData';
-import PinCard from '../components/Card/PinsCard';
+import PublicPinsCard from '../components/Card/PublicPinsCards';
 
 export default class Home extends Component {
   state = {
@@ -14,7 +14,7 @@ export default class Home extends Component {
     if (this.props.authed === null) {
       component = <Loader />;
     } else if (this.props.authed) {
-      component = this.state.publicPins.map((pin) => (<PinCard key={pin.firebaseKey} pin={pin}/>));
+      component = this.state.publicPins.map((pin) => (<PublicPinsCard key={pin.firebaseKey} pin={pin}/>));
     } else {
       component = <Auth />;
     }
