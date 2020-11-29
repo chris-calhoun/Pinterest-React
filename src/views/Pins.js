@@ -58,8 +58,8 @@ render() {
       <AppModal title={'Create Pin'} buttonLabel={'Create Pin'}>
         <PinForm onUpdate={this.getPins}/>
       </AppModal>
-      <h1>Here are all of your pins</h1>
-      <div className='d-flex flex-wrap container'>{showPins()}</div>
+      <h1 className="my-4">Here are all of your pins</h1>
+      <div className='d-flex flex-wrap justify-content-center container'>{showPins()}</div>
       </>
     )}
     </>

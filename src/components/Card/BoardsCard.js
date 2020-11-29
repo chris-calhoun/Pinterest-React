@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function BoardsCard({ board, onDelete }) {
   return (
-    <div className='card m-2'>
+    <div className='board-card card m-2'>
       <img className='card-img-top' src={board.imageUrl} alt='Card cap' />
       <div className='card-body'>
         <h5 className='card-title'>{board.name}</h5>
