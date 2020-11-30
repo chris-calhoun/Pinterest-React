@@ -11,6 +11,7 @@ export default class PinForm extends Component {
     imageUrl: this.props.pin?.imageUrl || '',
     userId: this.props.board?.userId || '',
     description: this.props.pin?.description || '',
+    private: this.props.pin?.private || '',
   }
 
   componentDidMount() {
@@ -96,6 +97,10 @@ export default class PinForm extends Component {
           accept='image/*'
           onChange={this.handleChange}
         />
+        <select className="form-control form-control-lg" name="private" value={this.state.private} onChange={this.handleChange} required>
+          <option value="true">Private</option>
+          <option value="false">Public</option>
+        </select>
         <button>Submit</button>
       </form>
     );
